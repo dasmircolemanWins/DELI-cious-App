@@ -62,8 +62,8 @@ public class Sandwich {
         price += cost;
     }
 
-    public void addRegularTopping(String topping) {
-        regularToppings.add(topping);
+    public void addRegularToppings(String toppings) {
+        regularToppings.add(toppings);
     }
 
     public void addSauce(String sauce) {
