@@ -1,15 +1,14 @@
 package com.pluralsight.models;
 
-public class Drink {
+public class Drink extends MenuItem {
     private String flavor;
     private String size; // Small, Medium, Large
-    private double price;
 
 
-    public Drink(String flavor, String size, double price) {
+    public Drink(String flavor, String size, double basePrice) {
+        super(basePrice);
         this.flavor = flavor;
         this.size = size;
-        this.price = price;
     }
     // Constructor sets flavor and size, calculates price
     // Method: getPrice()
@@ -30,10 +29,11 @@ public class Drink {
     }
 
     public double getPrice() {
-        return price;
+        return basePrice;
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        this.basePrice = price;
     }
+
 }

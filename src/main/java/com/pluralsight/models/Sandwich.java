@@ -2,7 +2,7 @@ package com.pluralsight.models;
 
 import java.util.*;
 
-public class Sandwich {
+public class Sandwich extends MenuItem {
     private String breadType;
     private int size;
     private boolean toasted;
@@ -12,7 +12,30 @@ public class Sandwich {
     private List<Toppings> sauces = new ArrayList<>();
     private double price;
     // Constructor initializes bread, size, toasted, and sets base price
+    public Sandwich(String breadType, int size, boolean toasted, Double price) {
+
+        super (switch (size){
+            case
+                    4 -> 5.50;
+            case
+                    8 -> 7.00;
+            case
+                    12 -> 8.50;
+
+            default -> 8.50;
+
+        } );
+
+
+        this.breadType = breadType;
+        this.size = size;
+        this.toasted = toasted;
+        this.price = price;
+    }
+
+
     // Methods:
+
     // - addMeat(Meat meat)
     // - addCheese(Cheese cheese)
     // - addRegularTopping(String topping)
@@ -34,12 +57,7 @@ public class Sandwich {
     public void addSauce(Toppings sauces){
         this.sauces.add(sauces);
     }
-    public Sandwich(String breadType, int size, boolean toasted) {
-        this.breadType = breadType;
-        this.size = size;
-        this.toasted = toasted;
-        this.price = price;
-    }
+
 
     public String getBreadType() {
         return breadType;

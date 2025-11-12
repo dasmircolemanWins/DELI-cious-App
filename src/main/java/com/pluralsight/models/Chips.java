@@ -1,8 +1,12 @@
 package com.pluralsight.models;
 
-public class Chips {
+public class Chips extends MenuItem {
     private String type;
-    private final double price = 1.50;
+
+    public Chips(String type) {
+        super(1.50);
+        this.type = type;
+    }
 
     public String getType() {
         return type;
@@ -13,7 +17,7 @@ public class Chips {
     }
 
     public double getPrice() {
-        return price;
+        return basePrice;
     }
 
 // Constructor sets chip type

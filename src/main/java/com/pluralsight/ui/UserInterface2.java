@@ -103,7 +103,7 @@ public class UserInterface2 {
                             isToasted = false;
                         }
                         //build sandwich here using variables above.
-                        Sandwich supersub = new Sandwich(breadType,sammySize,isToasted);
+                        Sandwich supersub = new Sandwich(breadType,sammySize,isToasted,rice);
                         // create toppings object using toppings constructor
                         //add topings to supersub sandwich object
                         //add completed sandwich to order object that we create
