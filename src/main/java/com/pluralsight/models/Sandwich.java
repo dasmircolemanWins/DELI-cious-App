@@ -10,8 +10,7 @@ public class Sandwich extends MenuItem {
     private List<Cheese> cheeses = new ArrayList<>();
     private String regularToppings; //can be changed to an array
     private String sauces;
-    //    private List<Toppings> regularToppings = new ArrayList<>();
-//    private List<Toppings> sauces = new ArrayList<>();
+
     private double price;
 
     // Constructor initializes bread, size, toasted, and sets base price
@@ -46,21 +45,6 @@ public class Sandwich extends MenuItem {
     // - getSummary()
 
 
-//    public void addMeat(Toppings meat){
-//        this.meats.add(meat);
-//    }
-//
-//    public void addCheese(Toppings cheese){
-//        this.cheeses.add(cheese);
-//    }
-//    public void addtopping(Toppings regularToppings){
-//        this.regularToppings.add(regularToppings);
-//    }
-//    public void addSauce(Toppings sauces){
-//        this.sauces.add(sauces);
-//    }
-
-
     public String getBreadType() {
         return breadType;
     }
@@ -93,9 +77,7 @@ public class Sandwich extends MenuItem {
         this.price = price;
     }
 
-
-    //calculate proce for sandwich
-
+    //calculate price for sandwich
     @Override
     public double calculateTotalCost() {
         //start with the base price of the sandwich
@@ -104,10 +86,7 @@ public class Sandwich extends MenuItem {
         return 0.0;
     }
 
-
     // private double startingPrice(int size) {}
-
-
     @Override
     public String toString() {
         return " Sandwich: \n" +

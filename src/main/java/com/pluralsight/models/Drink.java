@@ -41,7 +41,7 @@ public class Drink extends MenuItem {
     public void setPrice(double price) {
         this.basePrice = price;
     }
-
+ // override methods calculate cost and prints out drink order
     @Override
     public double calculateTotalCost() {
 

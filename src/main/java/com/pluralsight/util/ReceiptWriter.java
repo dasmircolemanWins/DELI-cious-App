@@ -8,8 +8,5 @@ public class ReceiptWriter {
     public void printReceipt(Order order){
 
         //this is where we can print the receipt to the folder
-
-
-
     }
 }

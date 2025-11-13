@@ -232,27 +232,4 @@ public class UserInterface2 {
 
 }
 
-//    public static void sandwichBuilder() {
-//
-//        String response = askUser("")
-//        if (response.isEmpty()) {
-//            System.out.println("not found, Please try again");
-//        } else {
-//            // control flow for user input
-//            switch (response.toLowerCase()) {
-//                case "a": {
-//                    // invoke the sandwich method and pass in new order
-//
-//                    break;
-//                }
-//                case "b": {
-//                    // invoke the exit app loop to home screen method
-//                    isRunning = false;
-//                    break;
-//                }
-//                // exit the program by stopping the while look
-//            }
-//        }
-//    }
-//}
 
