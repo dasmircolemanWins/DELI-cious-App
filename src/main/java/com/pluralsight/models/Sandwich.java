@@ -15,7 +15,8 @@ public class Sandwich extends MenuItem {
     private double price;
 
     // Constructor initializes bread, size, toasted, and sets base price
-    public Sandwich(String breadType, int size, List<Meats> meats, List<Cheese> cheeses, String regularToppings, String sauces, boolean toasted) {
+    public Sandwich(String breadType, int size, List<Meats> meats,
+                    List<Cheese> cheeses, String regularToppings, String sauces, boolean toasted) {
 
         super(switch (size) {
             case 4 -> 5.50;

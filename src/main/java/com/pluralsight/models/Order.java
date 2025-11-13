@@ -3,13 +3,13 @@ package com.pluralsight.models;
 import java.util.*;
 
 public class Order {
-    //    private List<Sandwich> sandwiches;
-//    private List<Drink> drinks;
-//    private List<Chips> chips;
+//    private List<Sandwich> sandwiches;
+//private List<Drink> drinks;
+// private List<Chips> chips;
     private List<MenuItem> items = new ArrayList<>();
-//    private List<Sandwich> sandwiches = new ArrayList<>();
-//    private List<Drink> drinks = new ArrayList<>();
-//    private List<Chips> chips = new ArrayList<>();
+// private List<Sandwich> sandwiches = new ArrayList<>();
+// private List<Drink> drinks = new ArrayList<>();
+// private List<Chips> chips = new ArrayList<>();
 
     //create constructors
 
@@ -24,10 +24,7 @@ public class Order {
     }
 
     public Order() {
-    }
-
-    ;
-
+    };
     // Methods:
     // - addSandwich(Sandwich s)
     // - addDrink(Drink d)
@@ -47,14 +44,14 @@ public class Order {
     }
 
     // loop through sandwich array , loop through drinks array and loop through chips array.
-    public void getTotalPrice() {
-//        while () {
-//        }
+    public double getTotalPrice() {
+    double foodTotal = 0;
+    for (MenuItem item : items){
+        foodTotal += item.getBasePrice();
+    }
+        return  foodTotal;
 // loop through items get the price of each items
     }
-
-    public Void getOrderSummary() {
+    public void getOrderSummary() {
     }
-
-    ;
 }
