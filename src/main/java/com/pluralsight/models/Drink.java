@@ -5,8 +5,13 @@ public class Drink extends MenuItem {
     private String size; // Small, Medium, Large
 
 
-    public Drink(String flavor, String size, double basePrice) {
-        super(basePrice);
+    public Drink(String flavor, String size) {
+        super(switch(size.toLowerCase()){
+            case "small" -> 2;
+            case "medium" -> 2.50;
+            case "large" -> 3;
+                    default -> 3;
+                });
         this.flavor = flavor;
         this.size = size;
     }
@@ -37,4 +42,23 @@ public class Drink extends MenuItem {
         this.basePrice = price;
     }
 
+    @Override
+    public double calculateTotalCost() {
+
+        return switch (this.size.toLowerCase()) {
+            case "small" -> 2;
+            case "medium" -> 2.50;
+            default -> 3;
+        };
+
+    }
+
+    @Override
+    public String toString() {
+        return "Drink: \n" +
+                "flavor='" + flavor + '\'' +
+                ", size='" + size + '\'' +
+                ", basePrice=" + basePrice +
+                '}';
+    }
 }

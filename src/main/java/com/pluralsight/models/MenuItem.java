@@ -18,4 +18,6 @@ public abstract class MenuItem {
         this.basePrice = price;
     }
 
+    public abstract double calculateTotalCost();
+
 }

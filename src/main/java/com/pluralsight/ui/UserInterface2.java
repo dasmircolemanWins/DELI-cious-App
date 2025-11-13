@@ -1,15 +1,14 @@
 package com.pluralsight.ui;
 
-import com.pluralsight.models.Cheese;
-import com.pluralsight.models.Meats;
-import com.pluralsight.models.Order;
-import com.pluralsight.models.Sandwich;
+import com.pluralsight.models.*;
+import com.pluralsight.util.Menu;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface2 {
     public static Scanner myScanner = new Scanner(System.in);
+    public static Menu menu = new Menu();
 
     public static String askUser(String question) {
         try {
@@ -96,17 +95,24 @@ public class UserInterface2 {
                 switch (response.toLowerCase()) {
                     case "a": {
                         // invoke the sandwich method and pass in new order
+                        //print out bread types for user to make selection
+                        menu.displayMenuItems(menu.breadTypes);
                         String breadType = askUser("bread type?");
+
                         int sammySize = askUserInt("Sandwich size? 4, 8, 12");
-                        String Toppings = askUser("Toppings");
+                        myScanner.nextLine();
+
 
                         // while loop so the user can pick all the meats they want
                         ArrayList<Meats> meats = new ArrayList<>();
                         boolean meatsIsRunning = true;
                         while (meatsIsRunning) {
                             Meats meatChoice = new Meats();
-                            String choice = askUser("Do you want to choose another Meat");
-                            if (choice.equalsIgnoreCase("yes")) {
+
+                            menu.displayMenuItems(menu.meats);
+                            String choice = askUser("Do you want to add meat? y/n");
+
+                            if (choice.equalsIgnoreCase("y")) {
                                 String choicem = askUser("What kind of meat do you want?");
                                 boolean isExtra = Boolean.parseBoolean(askUser("do you want extra? true/false"));
                                 double price = meatChoice.getPrice(sammySize);
@@ -122,8 +128,9 @@ public class UserInterface2 {
                         boolean cheeseIsRunning = true;
                         while (cheeseIsRunning) {
                             Cheese cheeseChoice = new Cheese();
-                            String choice = askUser("Do you want to choose another Cheese?");
-                            if (choice.equalsIgnoreCase("yes")) {
+                            menu.displayMenuItems(menu.cheeses);
+                            String choice = askUser("Do you want to add cheese? y/n");
+                            if (choice.equalsIgnoreCase("y")) {
                                 String choicec = askUser("What kind of Cheese do you want?");
                                 boolean isExtra = Boolean.parseBoolean(askUser("do you want extra? true/false"));
                                 double price = cheeseChoice.getPrice(sammySize);
@@ -132,6 +139,27 @@ public class UserInterface2 {
                                 cheeseIsRunning = false;
                             }
                         }
+
+                        StringBuilder toppingString = new StringBuilder();
+                        menu.displayMenuItems(menu.toppings);
+                        String toppingsResp = askUser("Would you like to add topping? y/n");
+                        if (toppingsResp.equalsIgnoreCase("y")) {
+                            System.out.println("Please indicate the toppings you want by it's number.");
+                            System.out.println("Note: Separate using commas");
+                            System.out.println("Ex: 1,2,3 = lettuce, tomatoes, peppers");
+
+                            String toppingIntSelection = myScanner.nextLine();
+                            String[] toppingsArr = toppingIntSelection.split(",");
+
+                            for(String toppingIndex: toppingsArr){
+                                toppingString.append(menu.toppings[Integer.parseInt(toppingIndex) - 1]).append(" ");
+                            }
+
+
+                        } else {
+                            System.out.println("No toppings added");
+                        }
+
 
                         String Sauces = askUser("sauces");
                         String toastedResponse = askUser("do you want your sandwich toasty?");
@@ -144,11 +172,12 @@ public class UserInterface2 {
                             isToasted = false;
                         }
                         //build sandwich here using variables above.
-                        Sandwich supersub = new Sandwich(breadType, sammySize, meats, cheeses, Toppings, Sauces, isToasted);
+                        Sandwich supersub = new Sandwich(breadType, sammySize, meats, cheeses, toppingString.toString().trim(), Sauces, isToasted);
                         // create toppings object using toppings constructor
                         //add topings to supersub sandwich object
                         //add completed sandwich to order object that we create
                         //calculate price from order object/sandwich object
+                        order.addItem(supersub);
                         break;
                     }
                     case "b": {
@@ -162,7 +191,11 @@ public class UserInterface2 {
                             System.out.println("bread not toasted");
                             boolean gotMilk = false;
                         }
+
+                        Drink drink = new Drink("","");
+                        order.addItem(drink);
                         break;
+
                     }
                     case "c": {
                         String chipResponse = askUser("do you want a drink?");
@@ -173,6 +206,8 @@ public class UserInterface2 {
                             System.out.println("no chips");
                             boolean hasChips = false;
                         }
+                        Chips chips = new Chips("");
+                        order.addItem(chips);
                         break;
                     }
                     case "d": {
@@ -180,6 +215,8 @@ public class UserInterface2 {
                         if (checkOutResponse.equalsIgnoreCase("yes")) {
                             System.out.println("checkout");
                             boolean hasCheckedout = true;
+                                order.getOrderSummary();
+                            System.out.println("You're order total is: " + order.getTotalPrice()  );
 
                         } else {
                             System.out.println("no chips");
@@ -191,6 +228,8 @@ public class UserInterface2 {
             }
         }
     }
+
+
 }
 
 //    public static void sandwichBuilder() {

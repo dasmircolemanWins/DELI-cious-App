@@ -20,7 +20,17 @@ public class Chips extends MenuItem {
         return basePrice;
     }
 
-// Constructor sets chip type
-    // Method: getPrice()
+    @Override
+    public double calculateTotalCost() {
+        return getPrice();
+    }
+
+    @Override
+    public String toString() {
+        return "Chips: " +
+                "type='" + type + '\'' +
+                ", basePrice=" + basePrice +
+                '}';
+    }
 }
 

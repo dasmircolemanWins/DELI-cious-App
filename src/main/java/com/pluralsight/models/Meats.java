@@ -62,4 +62,13 @@ public class Meats {
     }
     // Constructor sets type, extra flag, size, and calculates price
     // Method: getPrice()
+
+    @Override
+    public String toString() {
+        return "Meats{" +
+                "type='" + type + '\'' +
+                ", isExtra=" + isExtra +
+                ", price=" + price +
+                '}';
+    }
 }

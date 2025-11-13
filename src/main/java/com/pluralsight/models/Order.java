@@ -7,6 +7,7 @@ public class Order {
 //private List<Drink> drinks;
 // private List<Chips> chips;
     private List<MenuItem> items = new ArrayList<>();
+
 // private List<Sandwich> sandwiches = new ArrayList<>();
 // private List<Drink> drinks = new ArrayList<>();
 // private List<Chips> chips = new ArrayList<>();
@@ -24,6 +25,7 @@ public class Order {
     }
 
     public Order() {
+
     };
     // Methods:
     // - addSandwich(Sandwich s)
@@ -31,27 +33,40 @@ public class Order {
     // - addChips(Chips c)
     // - getTotalPrice()
     // - getOrderSummary()
-    public void addSandwich(Sandwich sammy) {
-        this.items.add(sammy);
-    }
+//    public void addSandwich(Sandwich sammy) {
+//        this.items.add(sammy);
+//    }
+//
+//    public void addDrink(Drink drink) {
+//        this.items.add(drink);
+//    }
+//
+//    public void addChips(Chips chip) {
+//        this.items.add(chip);
+//    }
 
-    public void addDrink(Drink drink) {
-        this.items.add(drink);
-    }
+    //one method that takes in a menu item
 
-    public void addChips(Chips chip) {
-        this.items.add(chip);
+    public void addItem(MenuItem item){
+        this.items.add(item);
     }
 
     // loop through sandwich array , loop through drinks array and loop through chips array.
     public double getTotalPrice() {
-    double foodTotal = 0;
+    double orderTotal = 0;
     for (MenuItem item : items){
-        foodTotal += item.getBasePrice();
+        orderTotal += item.calculateTotalCost();
     }
-        return  foodTotal;
+        return  orderTotal;
 // loop through items get the price of each items
     }
     public void getOrderSummary() {
+
+        //all we need to print the order summary
+        for(MenuItem item: items){
+            System.out.println(item);
+        }
+        System.out.println("Order total: " + this.getTotalPrice());
+
     }
 }

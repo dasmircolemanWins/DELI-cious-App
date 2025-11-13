@@ -8,7 +8,7 @@ public class Sandwich extends MenuItem {
     private boolean toasted;
     private List<Meats> meats = new ArrayList<>();
     private List<Cheese> cheeses = new ArrayList<>();
-    private String regularToppings;
+    private String regularToppings; //can be changed to an array
     private String sauces;
     //    private List<Toppings> regularToppings = new ArrayList<>();
 //    private List<Toppings> sauces = new ArrayList<>();
@@ -19,14 +19,11 @@ public class Sandwich extends MenuItem {
                     List<Cheese> cheeses, String regularToppings, String sauces, boolean toasted) {
 
         super(switch (size) {
-            case 4 -> 5.50;
+            case 4 ->  5.50;
             case 8 -> 7.00;
             case 12 -> 8.50;
-
             default -> 8.50;
-
         });
-
 
         this.breadType = breadType;
         this.size = size;
@@ -35,7 +32,7 @@ public class Sandwich extends MenuItem {
         this.regularToppings = regularToppings;
         this.sauces = sauces;
         this.toasted = toasted;
-        this.price = price;
+        this.price = basePrice;
     }
 
 
@@ -97,7 +94,31 @@ public class Sandwich extends MenuItem {
     }
 
 
+    //calculate proce for sandwich
+
+    @Override
+    public double calculateTotalCost() {
+        //start with the base price of the sandwich
+       //add all  the meats and cheese
+        //set price = to the total we calculate
+        return 0.0;
+    }
+
+
     // private double startingPrice(int size) {}
 
 
+    @Override
+    public String toString() {
+        return " Sandwich: \n" +
+                "breadType='" + breadType + '\'' +
+                ", size=" + size +
+                ", toasted=" + toasted +
+                ", meats=" + meats +
+                ", cheeses=" + cheeses +
+                ", regularToppings='" + regularToppings + '\'' +
+                ", sauces='" + sauces + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
