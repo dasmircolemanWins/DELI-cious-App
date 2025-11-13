@@ -13,10 +13,11 @@ public class Drink extends MenuItem {
     // Constructor sets flavor and size, calculates price
     // Method: getPrice()
 
-    public String getFlavor(){
+    public String getFlavor() {
         return this.flavor;
     }
-    public void setFlavor(String flavor){
+
+    public void setFlavor(String flavor) {
         this.flavor = flavor;
     }
 

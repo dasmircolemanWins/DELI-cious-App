@@ -11,7 +11,10 @@ public class Meats {
         this.price = price;
     }
 
-    public Meats(){};
+    public Meats() {
+    }
+
+    ;
 
     public String getType() {
         return type;
@@ -30,28 +33,28 @@ public class Meats {
     }
 
     public double getPrice(int size) {
-       switch(size) {
-           case 4:
-               if(isExtra){
-                   return 1.5f;
-               } else{
-                 return 1.0f;
-               }
-           case 8:
-               if(isExtra){
-                   return 3.0f;
-               } else{
-                   return 2.0f;
-               }
-           case 12:
-               if(isExtra){
-                   return 4.50f;
-               } else{
-                   return 3.00f;
-               }
-           default:
-               return 0;
-       }
+        switch (size) {
+            case 4:
+                if (isExtra) {
+                    return 1.5f;
+                } else {
+                    return 1.0f;
+                }
+            case 8:
+                if (isExtra) {
+                    return 3.0f;
+                } else {
+                    return 2.0f;
+                }
+            case 12:
+                if (isExtra) {
+                    return 4.50f;
+                } else {
+                    return 3.00f;
+                }
+            default:
+                return 0;
+        }
     }
 
     public void setPrice(double price) {

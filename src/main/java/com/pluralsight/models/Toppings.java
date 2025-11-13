@@ -1,7 +1,7 @@
 package com.pluralsight.models;
 
 
-public class Toppings  {
+public class Toppings {
     private String name;
     private double price;
 

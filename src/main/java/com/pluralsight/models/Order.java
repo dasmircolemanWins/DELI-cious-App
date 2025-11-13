@@ -1,6 +1,7 @@
 package com.pluralsight.models;
 
 import java.util.*;
+
 public class Order {
     //    private List<Sandwich> sandwiches;
 //    private List<Drink> drinks;
@@ -12,17 +13,20 @@ public class Order {
 
     //create constructors
 
-    public Order( List<MenuItem> items){
+    public Order(List<MenuItem> items) {
         this.items = items;
 
 
-            //(List<Sandwich> sandwiches, List<Drink> drinks, List<Chips> chips) {
+        //(List<Sandwich> sandwiches, List<Drink> drinks, List<Chips> chips) {
 //        this.sandwiches = sandwiches;
 //        this.drinks = drinks;
 //        this.chips = chips;
     }
 
-    public Order(){};
+    public Order() {
+    }
+
+    ;
 
     // Methods:
     // - addSandwich(Sandwich s)
@@ -41,7 +45,8 @@ public class Order {
     public void addChips(Chips chip) {
         this.items.add(chip);
     }
-// loop through sandwich array , loop through drinks array and loop through chips array.
+
+    // loop through sandwich array , loop through drinks array and loop through chips array.
     public void getTotalPrice() {
 //        while () {
 //        }
@@ -49,6 +54,7 @@ public class Order {
     }
 
     public Void getOrderSummary() {
+    }
 
-    };
+    ;
 }

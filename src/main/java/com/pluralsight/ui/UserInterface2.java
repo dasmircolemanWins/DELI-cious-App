@@ -20,6 +20,7 @@ public class UserInterface2 {
             return "";
         }
     }
+
     public static int askUserInt(String question) {
         try {
             System.out.println(question);
@@ -29,6 +30,7 @@ public class UserInterface2 {
             return 0;
         }
     }
+
     // method for displaying the home screen
     public static void home() {
         // while loop to keep the screen up even if there are misinputs
@@ -69,7 +71,7 @@ public class UserInterface2 {
     // method for displaying ledger screen
     public static void orderScreen() {
         // instance of Order class to save all items
-         Order order = new Order();
+        Order order = new Order();
 
         boolean isRunning = true;
         while (isRunning) { // keep display up even after misinput
@@ -101,10 +103,10 @@ public class UserInterface2 {
                         // while loop so the user can pick all the meats they want
                         ArrayList<Meats> meats = new ArrayList<>();
                         boolean meatsIsRunning = true;
-                        while(meatsIsRunning) {
+                        while (meatsIsRunning) {
                             Meats meatChoice = new Meats();
-                           String choice = askUser("Do you want to choose another Meat");
-                            if(choice.equalsIgnoreCase("yes")){
+                            String choice = askUser("Do you want to choose another Meat");
+                            if (choice.equalsIgnoreCase("yes")) {
                                 String choicem = askUser("What kind of meat do you want?");
                                 boolean isExtra = Boolean.parseBoolean(askUser("do you want extra? true/false"));
                                 double price = meatChoice.getPrice(sammySize);
@@ -118,10 +120,10 @@ public class UserInterface2 {
                         // String Cheeses = askUser("Cheeses");
                         ArrayList<Cheese> cheeses = new ArrayList<>();
                         boolean cheeseIsRunning = true;
-                        while(cheeseIsRunning) {
+                        while (cheeseIsRunning) {
                             Cheese cheeseChoice = new Cheese();
                             String choice = askUser("Do you want to choose another Cheese?");
-                            if(choice.equalsIgnoreCase("yes")){
+                            if (choice.equalsIgnoreCase("yes")) {
                                 String choicec = askUser("What kind of Cheese do you want?");
                                 boolean isExtra = Boolean.parseBoolean(askUser("do you want extra? true/false"));
                                 double price = cheeseChoice.getPrice(sammySize);

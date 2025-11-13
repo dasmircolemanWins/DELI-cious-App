@@ -10,23 +10,21 @@ public class Sandwich extends MenuItem {
     private List<Cheese> cheeses = new ArrayList<>();
     private String regularToppings;
     private String sauces;
-//    private List<Toppings> regularToppings = new ArrayList<>();
+    //    private List<Toppings> regularToppings = new ArrayList<>();
 //    private List<Toppings> sauces = new ArrayList<>();
     private double price;
-    // Constructor initializes bread, size, toasted, and sets base price
-    public Sandwich(String breadType, int size,  List<Meats> meats, List<Cheese> cheeses, String regularToppings, String sauces, boolean toasted) {
 
-        super (switch (size){
-            case
-                    4 -> 5.50;
-            case
-                    8 -> 7.00;
-            case
-                    12 -> 8.50;
+    // Constructor initializes bread, size, toasted, and sets base price
+    public Sandwich(String breadType, int size, List<Meats> meats, List<Cheese> cheeses, String regularToppings, String sauces, boolean toasted) {
+
+        super(switch (size) {
+            case 4 -> 5.50;
+            case 8 -> 7.00;
+            case 12 -> 8.50;
 
             default -> 8.50;
 
-        } );
+        });
 
 
         this.breadType = breadType;
@@ -98,7 +96,7 @@ public class Sandwich extends MenuItem {
     }
 
 
-   // private double startingPrice(int size) {}
+    // private double startingPrice(int size) {}
 
 
-    }
+}
