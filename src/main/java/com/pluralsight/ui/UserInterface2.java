@@ -1,7 +1,11 @@
 package com.pluralsight.ui;
 
+import com.pluralsight.models.Cheese;
+import com.pluralsight.models.Meats;
+import com.pluralsight.models.Order;
 import com.pluralsight.models.Sandwich;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface2 {
@@ -64,6 +68,9 @@ public class UserInterface2 {
 
     // method for displaying ledger screen
     public static void orderScreen() {
+        // instance of Order class to save all items
+         Order order = new Order();
+
         boolean isRunning = true;
         while (isRunning) { // keep display up even after misinput
             String response = askUser("""
@@ -90,8 +97,40 @@ public class UserInterface2 {
                         String breadType = askUser("bread type?");
                         int sammySize = askUserInt("Sandwich size? 4, 8, 12");
                         String Toppings = askUser("Toppings");
-                        String meats = askUser("meats");
-                        String Cheeses = askUser("Cheeses");
+
+                        // while loop so the user can pick all the meats they want
+                        ArrayList<Meats> meats = new ArrayList<>();
+                        boolean meatsIsRunning = true;
+                        while(meatsIsRunning) {
+                            Meats meatChoice = new Meats();
+                           String choice = askUser("Do you want to choose another Meat");
+                            if(choice.equalsIgnoreCase("yes")){
+                                String choicem = askUser("What kind of meat do you want?");
+                                boolean isExtra = Boolean.parseBoolean(askUser("do you want extra? true/false"));
+                                double price = meatChoice.getPrice(sammySize);
+                                meats.add(new Meats(choicem, isExtra, price));
+                            } else {
+                                meatsIsRunning = false;
+                            }
+                        }
+
+                        // while loop so the user can pick all the meats they want
+                        // String Cheeses = askUser("Cheeses");
+                        ArrayList<Cheese> cheeses = new ArrayList<>();
+                        boolean cheeseIsRunning = true;
+                        while(cheeseIsRunning) {
+                            Cheese cheeseChoice = new Cheese();
+                            String choice = askUser("Do you want to choose another Cheese?");
+                            if(choice.equalsIgnoreCase("yes")){
+                                String choicec = askUser("What kind of Cheese do you want?");
+                                boolean isExtra = Boolean.parseBoolean(askUser("do you want extra? true/false"));
+                                double price = cheeseChoice.getPrice(sammySize);
+                                cheeses.add(new Cheese(choicec, isExtra, price));
+                            } else {
+                                cheeseIsRunning = false;
+                            }
+                        }
+
                         String Sauces = askUser("sauces");
                         String toastedResponse = askUser("do you want your sandwich toasty?");
                         boolean isToasted;
@@ -103,7 +142,7 @@ public class UserInterface2 {
                             isToasted = false;
                         }
                         //build sandwich here using variables above.
-                        Sandwich supersub = new Sandwich(breadType,sammySize,isToasted,rice);
+                        Sandwich supersub = new Sandwich(breadType, sammySize, meats, cheeses, Toppings, Sauces, isToasted);
                         // create toppings object using toppings constructor
                         //add topings to supersub sandwich object
                         //add completed sandwich to order object that we create

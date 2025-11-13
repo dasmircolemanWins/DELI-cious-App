@@ -6,13 +6,15 @@ public class Sandwich extends MenuItem {
     private String breadType;
     private int size;
     private boolean toasted;
-    private List<Toppings> meats = new ArrayList<>();
-    private List<Toppings> cheeses = new ArrayList<>();
-    private List<Toppings> regularToppings = new ArrayList<>();
-    private List<Toppings> sauces = new ArrayList<>();
+    private List<Meats> meats = new ArrayList<>();
+    private List<Cheese> cheeses = new ArrayList<>();
+    private String regularToppings;
+    private String sauces;
+//    private List<Toppings> regularToppings = new ArrayList<>();
+//    private List<Toppings> sauces = new ArrayList<>();
     private double price;
     // Constructor initializes bread, size, toasted, and sets base price
-    public Sandwich(String breadType, int size, boolean toasted, Double price) {
+    public Sandwich(String breadType, int size,  List<Meats> meats, List<Cheese> cheeses, String regularToppings, String sauces, boolean toasted) {
 
         super (switch (size){
             case
@@ -29,6 +31,10 @@ public class Sandwich extends MenuItem {
 
         this.breadType = breadType;
         this.size = size;
+        this.meats = meats;
+        this.cheeses = cheeses;
+        this.regularToppings = regularToppings;
+        this.sauces = sauces;
         this.toasted = toasted;
         this.price = price;
     }
@@ -44,19 +50,19 @@ public class Sandwich extends MenuItem {
     // - getSummary()
 
 
-    public void addMeat(Toppings meat){
-        this.meats.add(meat);
-    }
-
-    public void addCheese(Toppings cheese){
-        this.cheeses.add(cheese);
-    }
-    public void addtopping(Toppings regularToppings){
-        this.regularToppings.add(regularToppings);
-    }
-    public void addSauce(Toppings sauces){
-        this.sauces.add(sauces);
-    }
+//    public void addMeat(Toppings meat){
+//        this.meats.add(meat);
+//    }
+//
+//    public void addCheese(Toppings cheese){
+//        this.cheeses.add(cheese);
+//    }
+//    public void addtopping(Toppings regularToppings){
+//        this.regularToppings.add(regularToppings);
+//    }
+//    public void addSauce(Toppings sauces){
+//        this.sauces.add(sauces);
+//    }
 
 
     public String getBreadType() {
@@ -91,101 +97,8 @@ public class Sandwich extends MenuItem {
         this.price = price;
     }
 
-    public class Cheese {
-        private String type; // American, Swiss, etc.
-        private boolean isExtra;
-        private int size;
-        private double price;
 
-        public Cheese(String type, boolean isExtra, int size, double price) {
-            this.type = type;
-            this.isExtra = isExtra;
-            this.size = size;
-            this.price = price;
-        }
-
-        public String getType() {
-            return type;
-        }
-
-        public void setType(String type) {
-            this.type = type;
-        }
-
-        public boolean isExtra() {
-            return isExtra;
-        }
-
-        public void setExtra(boolean extra) {
-            isExtra = extra;
-        }
-
-        public int getSize() {
-            return size;
-        }
-
-        public void setSize(int size) {
-            this.size = size;
-        }
-
-        public double getPrice() {
-            return price;
-        }
-
-        public void setPrice(double price) {
-            this.price = price;
-        }
-        // Constructor sets type, extra flag, size, and calculates price
-        // Method: getPrice()
-    }
    // private double startingPrice(int size) {}
 
-    public class Meat {
-        private String type; // Steak, Ham, etc.
-        private boolean isExtra;
-        private int size;
-        private double price;
-
-        public Meat(String type, boolean isExtra, int size, double price) {
-            this.type = type;
-            this.isExtra = isExtra;
-            this.size = size;
-            this.price = price;
-        }
-
-        public String getType() {
-            return type;
-        }
-
-        public void setType(String type) {
-            this.type = type;
-        }
-
-        public boolean isExtra() {
-            return isExtra;
-        }
-
-        public void setExtra(boolean extra) {
-            isExtra = extra;
-        }
-
-        public int getSize() {
-            return size;
-        }
-
-        public void setSize(int size) {
-            this.size = size;
-        }
-
-        public double getPrice() {
-            return price;
-        }
-
-        public void setPrice(double price) {
-            this.price = price;
-        }
-        // Constructor sets type, extra flag, size, and calculates price
-        // Method: getPrice()
-    }
 
     }

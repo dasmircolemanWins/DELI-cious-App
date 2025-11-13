@@ -22,6 +22,8 @@ public class Order {
 //        this.chips = chips;
     }
 
+    public Order(){};
+
     // Methods:
     // - addSandwich(Sandwich s)
     // - addDrink(Drink d)
@@ -41,8 +43,8 @@ public class Order {
     }
 // loop through sandwich array , loop through drinks array and loop through chips array.
     public void getTotalPrice() {
-        while () {
-        }
+//        while () {
+//        }
 // loop through items get the price of each items
     }
 
