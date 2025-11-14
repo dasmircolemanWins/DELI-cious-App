@@ -193,7 +193,7 @@ public class UserInterface2 {
                             System.out.println("no drink added");
                             boolean gotMilk = false;
                         }
-                        Drink drink = new Drink("","");
+                        Drink drink = new Drink("grape","");
                         order.addItem(drink);
                         break;
 
@@ -207,7 +207,7 @@ public class UserInterface2 {
                             System.out.println("no chips");
                             boolean hasChips = false;
                         }
-                        Chips chips = new Chips("");
+                        Chips chips = new Chips("plain");
                         order.addItem(chips);
                         break;
                     }

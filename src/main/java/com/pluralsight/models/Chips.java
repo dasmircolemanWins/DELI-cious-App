@@ -27,8 +27,8 @@ public class Chips extends MenuItem {
 
     @Override
     public String toString() {
-        return "Chips: " +
-                "type='" + type + '\'' +
+        return "Chips:\n " +
+                "type='\n" + type + '\'' +
                 ", basePrice=" + basePrice +
                 '}';
     }

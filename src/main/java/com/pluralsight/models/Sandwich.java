@@ -89,12 +89,12 @@ public class Sandwich extends MenuItem {
     public String toString() {
         return " Sandwich: \n" +
                 "breadType='" + breadType + '\'' +
-                ", size=" + size +
-                ", toasted=" + toasted +
-                ", meats=" + meats +
-                ", cheeses=" + cheeses +
-                ", regularToppings='" + regularToppings + '\'' +
-                ", sauces='" + sauces + '\'' +
+                ", size=\n" + size +
+                ", toasted=\n" + toasted +
+                ", meats=\n" + meats +
+                ", cheeses=\n" + cheeses +
+                ", regularToppings=\n'" + regularToppings + '\'' +
+                ", sauces='\n" + sauces + '\'' +
                 ", price=" + price +
                 '}';
     }

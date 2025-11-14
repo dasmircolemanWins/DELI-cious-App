@@ -65,9 +65,9 @@ public class Meats {
 
     @Override
     public String toString() {
-        return "Meats{" +
+        return "Meats{\n" +
                 "type='" + type + '\'' +
-                ", isExtra=" + isExtra +
+                ", isExtra=\n" + isExtra +
                 ", price=" + price +
                 '}';
     }

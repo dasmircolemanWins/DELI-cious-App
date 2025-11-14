@@ -56,7 +56,7 @@ public class Drink extends MenuItem {
     @Override
     public String toString() {
         return "Drink: \n" +
-                "flavor='" + flavor + '\'' +
+                "flavor='\n" + flavor + '\'' +
                 ", size='" + size + '\'' +
                 ", basePrice=" + basePrice +
                 '}';
