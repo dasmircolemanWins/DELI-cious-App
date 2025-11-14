@@ -23,12 +23,16 @@ public class Order {
         this.items.add(item);
     }
 
+    public List<MenuItem> getItems() {
+        return items;
+    }
+
     // loop through sandwich array , loop through drinks array and loop through chips array.
     public double getTotalPrice() {
-    double orderTotal = 0;
-    for (MenuItem item : items){
-        orderTotal += item.calculateTotalCost();
-    }
+        double orderTotal = 0;
+        for (MenuItem item : items){
+            orderTotal += item.calculateTotalCost();
+        }
         return  orderTotal;
 // loop through items get the price of each items
     }

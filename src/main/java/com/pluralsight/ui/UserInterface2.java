@@ -2,6 +2,7 @@ package com.pluralsight.ui;
 
 import com.pluralsight.models.*;
 import com.pluralsight.util.Menu;
+import com.pluralsight.util.ReceiptWriter;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -154,15 +155,15 @@ public class UserInterface2 {
                             for(String toppingIndex: toppingsArr){
                                 toppingString.append(menu.toppings[Integer.parseInt(toppingIndex) - 1]).append(" ");
                             }
-
-
                         } else {
                             System.out.println("No toppings added");
                         }
 
-
+                        menu.displayMenuItems(menu.sauces);
                         String Sauces = askUser("sauces");
-                        String toastedResponse = askUser("do you want your sandwich toasty?");
+
+
+                        String toastedResponse = askUser("do you want your sandwich toasty? yes/no");
                         boolean isToasted;
                         if (toastedResponse.equalsIgnoreCase("yes")) {
                             System.out.println("bread toasted");
@@ -183,22 +184,22 @@ public class UserInterface2 {
                     case "b": {
 
                         // invoke the exit app loop to home screen method
-                        String drinkResponse = askUser("do you want a drink?");
+                        menu.displayMenuItems(menu.drinkFlavors);
+                        String drinkResponse = askUser("do you want a drink? yes/no");
                         if (drinkResponse.equalsIgnoreCase("yes")) {
                             System.out.println("Add Drink");
                             boolean gotMilk = true;
                         } else {
-                            System.out.println("bread not toasted");
+                            System.out.println("no drink added");
                             boolean gotMilk = false;
                         }
-
                         Drink drink = new Drink("","");
                         order.addItem(drink);
                         break;
 
                     }
                     case "c": {
-                        String chipResponse = askUser("do you want a drink?");
+                        String chipResponse = askUser("do you want a chips? yes/no");
                         if (chipResponse.equalsIgnoreCase("yes")) {
                             System.out.println("Add Chips");
                             boolean hasChips = true;
@@ -211,16 +212,15 @@ public class UserInterface2 {
                         break;
                     }
                     case "d": {
-                        String checkOutResponse = askUser("Would you like to checkout?");
+                        String checkOutResponse = askUser("Would you like to checkout? yes/no");
                         if (checkOutResponse.equalsIgnoreCase("yes")) {
                             System.out.println("checkout");
                             boolean hasCheckedout = true;
-                                order.getOrderSummary();
+                            String name = myScanner.nextLine();
+                            order.getOrderSummary();
                             System.out.println("You're order total is: " + order.getTotalPrice()  );
-
-                        } else {
-                            System.out.println("no chips");
-                            boolean hasChips = false;
+                            ReceiptWriter Rw = new ReceiptWriter();
+                            Rw.printReceipt(order, name);
                         }
                         // exit the program by stopping the while look
                     }

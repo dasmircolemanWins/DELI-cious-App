@@ -80,10 +80,8 @@ public class Sandwich extends MenuItem {
     //calculate price for sandwich
     @Override
     public double calculateTotalCost() {
-        //start with the base price of the sandwich
-       //add all  the meats and cheese
-        //set price = to the total we calculate
-        return 0.0;
+
+        return getPrice();
     }
 
     // private double startingPrice(int size) {}
