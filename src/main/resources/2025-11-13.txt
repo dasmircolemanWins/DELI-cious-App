@@ -1,2 +1,0 @@
-Drink: 
-flavor='', size='', basePrice=3.0}
